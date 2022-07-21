@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require "toy_robot_simulator"
+require "./lib/toy_robot_simulator/robot"
+require 'factory_bot'
+require "support/factory_bot"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,5 +13,9 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.before(:all) do
+    FactoryBot.reload
   end
 end
